@@ -9,11 +9,11 @@ func SetupRouter() *gin.Engine {
 	r := gin.Default()
 	grp1 := r.Group("/api/v1")
 	{
-		grp1.GET("product", Controllers.GetProducts)
-		grp1.POST("product", Controllers.CreateProduct)
-		grp1.GET("product/:id", Controllers.GetProductByID)
-		grp1.PUT("product/:id", Controllers.UpdateProduct)
-		grp1.DELETE("product/:id", Controllers.DeleteProduct)
+		grp1.GET("products", Controllers.GetProducts)
+		grp1.POST("products", Controllers.CreateProduct)
+		grp1.GET("products/:id", Controllers.GetProductByID)
+		grp1.PUT("products/:id", Controllers.UpdateProduct)
+		grp1.DELETE("products/:id", Controllers.DeleteProduct)
 	}
 	return r
 }
