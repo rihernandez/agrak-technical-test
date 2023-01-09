@@ -1,6 +1,7 @@
 package Models
+
 import (
-	"agrak-technical-test/Config"
+	"agrak-technical-test/config"
 	"fmt"
 
 	_ "github.com/go-sql-driver/mysql"
@@ -27,13 +28,11 @@ func GetProductByID(product *Product, id string) (err error) {
 	return nil
 }
 
-
 func UpdateProduct(product *Product, id string) (err error) {
 	fmt.Println(product)
 	Config.DB.Save(product)
 	return nil
 }
-
 
 func DeleteProduct(product *Product, id string) (err error) {
 	Config.DB.Where("id = ?", id).Delete(product)

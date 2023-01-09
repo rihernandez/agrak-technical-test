@@ -1,8 +1,12 @@
 package Config
+
 import (
 	"fmt"
 	"github.com/jinzhu/gorm"
+	"os"
+	"strconv"
 )
+
 var DB *gorm.DB
 
 type DBConfig struct {
@@ -12,13 +16,22 @@ type DBConfig struct {
 	DBName   string
 	Password string
 }
+
 func BuildDBConfig() *DBConfig {
+
+	PORT, err := strconv.Atoi(os.Getenv("DB_PORT"))
+	if err != nil {
+		fmt.Println("Error during conversion")
+	}
+
+	fmt.Printf("Connected to database host: %s and port: %s\n", os.Getenv("DB_HOST"), os.Getenv("DB_PORT"))
+
 	dbConfig := DBConfig{
-		Host:     "sql9.freemysqlhosting.net",
-		Port:     3306,
-		User:     "sql9588740",
-		Password: "2ILGgpJMSp",
-		DBName:   "sql9588740",
+		Host:     os.Getenv("DB_HOST"),
+		Port:     PORT,
+		User:     os.Getenv("DB_USER"),
+		Password: os.Getenv("DB_PASS"),
+		DBName:   os.Getenv("DB_NAME"),
 	}
 	return &dbConfig
 }

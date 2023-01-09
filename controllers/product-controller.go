@@ -1,11 +1,11 @@
 package Controllers
-import (
-	"agrak-technical-test/Models"
-	"fmt"
-	"net/http"
-	"github.com/gin-gonic/gin"
-)
 
+import (
+	"agrak-technical-test/models"
+	"fmt"
+	"github.com/gin-gonic/gin"
+	"net/http"
+)
 
 func GetProducts(c *gin.Context) {
 	var product []Models.Product
@@ -16,7 +16,6 @@ func GetProducts(c *gin.Context) {
 		c.JSON(http.StatusOK, product)
 	}
 }
-
 
 func CreateProduct(c *gin.Context) {
 	var product Models.Product
@@ -30,7 +29,6 @@ func CreateProduct(c *gin.Context) {
 	}
 }
 
-
 func GetProductByID(c *gin.Context) {
 	id := c.Params.ByName("id")
 	var product Models.Product
@@ -41,7 +39,6 @@ func GetProductByID(c *gin.Context) {
 		c.JSON(http.StatusOK, product)
 	}
 }
-
 
 func UpdateProduct(c *gin.Context) {
 	var product Models.Product

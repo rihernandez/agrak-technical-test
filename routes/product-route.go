@@ -1,6 +1,7 @@
 package Routes
+
 import (
-	"agrak-technical-test/Controllers"
+	"agrak-technical-test/controllers"
 	"github.com/gin-gonic/gin"
 )
 
